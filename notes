@@ -1,3 +1,9 @@
 #!/bin/sh
 
-vim -u NONE -c 'source timenotes-vimrc'
+if [ $# = 0 ]; then
+  parsed_date=`date +%F`
+else
+  parsed_date=`ruby -rubygems -rchronic -e "puts Chronic.parse('$*').to_s.split[0]"`
+fi
+
+vim --noplugins -u NONE -i .viminfo -c 'source notes.vimrc' -- notesdb/$parsed_date.txt
