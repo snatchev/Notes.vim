@@ -13,7 +13,8 @@ set expandtab
 set autoindent
 
 set backup		" keep a backup file
-set backupdir=/tmp
+set backupdir=.backups/
+set directory=.backups/
 
 nnoremap <CR> "=strftime("✍ %F %r\n")<CR>po<TAB>
 
